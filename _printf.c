@@ -1,35 +1,46 @@
 #include "main.h"
+#include <stdarg.h> 
+#include <stdio.h>
 
-
-int handlePercentage(char * s, char type)
+int handlePercentage(va_list args, char type)
 {
-    int i = 0;
-    if (type == 's')
-    {
-        while (s[i] != '\0')
-    {
-        _putchar(s[i]);
-        i++;
-    }
-    }
+    
+    unsigned int i = 0;
+	fMap find_f[] = {
+		{"c", },
+		{"s", },
+		{"i", },
+		{"d", },
+		{"r", },
+		{"b", },
+		{"u", },
+		{"o", },
+		{"x", },
+		{"X", },
+		{"R", },
+		{  NULL , NULL}
+	};
     
     
     return i;
     
 }
 
-int _printf(char * buffer, char *str1){
+int _printf(const char * buffer, ...){
+
+    va_list args;
     int outedBuffer = 0;
     int i = 0;
     int addBy = 0;
+
+    va_start(args, buffer);
 
     while (buffer[i] != '\0')
     {  
         if(buffer[i] == '%')
         {
-            addBy = handlePercentage(str1, buffer[i+1]);
+            outedBuffer += handlePercentage(args, buffer[i+1]);
             i += 2;
-            outedBuffer += addBy;
 
         }else
         {
@@ -37,6 +48,7 @@ int _printf(char * buffer, char *str1){
             outedBuffer++;
         }
     }
+    va_end(args);
     return outedBuffer;
 
 }
