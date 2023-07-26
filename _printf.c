@@ -17,15 +17,6 @@ int handlePercentage(va_list args, char type)
     fMap funcMapList[] = {
         {"c", handleChar},
         {"s", handleString},
-        {"%", NULL},
-        {"r", NULL},
-        {"d", NULL},
-        {"b", NULL},
-        {"u", NULL},
-        {"o", NULL},
-        {"x", NULL},
-        {"X", NULL},
-        {"R", NULL},
         {NULL, NULL}
     };
 
