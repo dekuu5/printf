@@ -3,7 +3,8 @@
 #include <stdarg.h>
 
 int _printf(const char * buffer, ...);
-int _putchar(char c);  
+int _putchar(char c);
+int handleString(va_list args); 
 
 typedef struct functionMap
 {
