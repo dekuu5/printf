@@ -7,7 +7,11 @@ int _putchar(char c);
 int handleString(va_list args);
 int handleChar(va_list args);
 
-
+/**
+ * struct fMap - Function mapping structure
+ * @type: Format type
+ * @func: Corresponding handling function
+ */
 typedef struct functionMap
 {
 	char *type;

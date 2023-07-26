@@ -2,75 +2,90 @@
 #include <stdarg.h> 
 #include <stdio.h>
 
-
+/**
+ * handlePercentage - Handles the conversion specifier in the format string
+ * @args: The va_list of arguments
+ * @type: The format type to be handled
+ *
+ * Return: The number of characters written
+ */
 int handlePercentage(va_list args, char type)
 {
-    
     unsigned int i = 0;
     unsigned int CountedChars = 0;
-	fMap funcMapList[12] = {
-		{"c", handleChar},
-		{"s", handleString},
-		{"%", NULL},
-		{"r", NULL},
-		{"d", NULL},
-		{"b", NULL},
-		{"u", NULL},
-		{"o", NULL},
-		{"x", NULL},
-		{"X", NULL},
-		{"R", NULL},
-		{  NULL , NULL}
-	};
+
+    fMap funcMapList[] = {
+        {"c", handleChar},
+        {"s", handleString},
+        {"%", NULL},
+        {"r", NULL},
+        {"d", NULL},
+        {"b", NULL},
+        {"u", NULL},
+        {"o", NULL},
+        {"x", NULL},
+        {"X", NULL},
+        {"R", NULL},
+        {NULL, NULL}
+    };
+
     while (funcMapList[i].type)
     {
-        if (*(funcMapList[i].type) == type ){
+        if (*(funcMapList[i].type) == type)
+        {
             CountedChars = funcMapList[i].func(args);
         }
-        
+
         i++;
     }
-    
-    
+
     return CountedChars;
-    
 }
 
-int _printf(const char * buffer, ...){
-
+/**
+ * _printf - Custom implementation of printf
+ * @buffer: The format string
+ * @...: Additional arguments to be formatted
+ *
+ * Return: The number of characters printed (excluding the null byte)
+ */
+int _printf(const char *buffer, ...)
+{
     va_list args;
     int outedBuffer = 0;
     int i = 0;
     char type;
 
-    va_start(args, buffer);
-    if (buffer == NULL )
+    if (buffer == NULL)
     {
         return (-1);
     }
+    va_start(args, buffer);
     while (buffer[i] != '\0')
-    {  
-        if(buffer[i] == '%')
+    {
+        if (buffer[i] == '%')
         {
-            type = buffer[i+1];
+            type = buffer[i + 1];
 
             if (type == '%')
             {
                 _putchar('%');
                 outedBuffer++;
-            }else
+            }
+            else
             {
                 outedBuffer += handlePercentage(args, type);
             }
-            i += 2;
 
-        }else
+            i += 2;
+        }
+        else
         {
             _putchar(buffer[i++]);
             outedBuffer++;
         }
     }
+
     va_end(args);
     return outedBuffer;
-
 }
