@@ -4,7 +4,9 @@
 
 int _printf(const char * buffer, ...);
 int _putchar(char c);
-int handleString(va_list args); 
+int handleString(va_list args);
+int handleChar(va_list args);
+
 
 typedef struct functionMap
 {

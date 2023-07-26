@@ -9,7 +9,7 @@ int handlePercentage(va_list args, char type)
     unsigned int i = 0;
     unsigned int CountedChars = 0;
 	fMap funcMapList[12] = {
-		{"c", NULL},
+		{"c", handleChar},
 		{"s", handleString},
 		{"i", NULL},
 		{"r", NULL},
@@ -42,6 +42,11 @@ int _printf(const char * buffer, ...){
     int i = 0;
 
     va_start(args, buffer);
+    if (buffer == NULL )
+    {
+        return (-1);
+    }
+    
 
     while (buffer[i] != '\0')
     {  
