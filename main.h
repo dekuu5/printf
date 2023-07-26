@@ -14,7 +14,7 @@ int handleChar(va_list args);
  */
 typedef struct functionMap
 {
-	char *type;
+	char type;
 	int (*func)(va_list);
 } fMap;
 

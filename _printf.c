@@ -15,14 +15,14 @@ int handlePercentage(va_list args, char type)
     unsigned int CountedChars = 0;
 
     fMap funcMapList[] = {
-        {"c", handleChar},
-        {"s", handleString},
+        {'c', handleChar},
+        {'s', handleString},
         {NULL, NULL}
     };
 
     while (funcMapList[i].type)
     {
-        if (*(funcMapList[i].type) == type)
+        if (funcMapList[i].type == type)
         {
             CountedChars = funcMapList[i].func(args);
         }
