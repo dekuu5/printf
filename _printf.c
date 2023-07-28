@@ -19,6 +19,7 @@ int handlePercentage(va_list args, char type)
         {"s", handleString},
         {"i", handleInt},
 		{"d", handleDec},
+        {"b", handleBinary},
         {NULL, NULL}
     };
 

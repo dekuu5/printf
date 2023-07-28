@@ -8,6 +8,7 @@ int handleString(va_list args);
 int handleChar(va_list args);
 int handleInt(va_list args);
 int handleDec(va_list args);
+int handleBinary(va_list args);
 
 /**
  * struct fMap - Function mapping structure
