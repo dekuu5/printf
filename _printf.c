@@ -15,14 +15,21 @@ int handlePercentage(va_list args, char type)
     unsigned int CountedChars = 0;
 
     fMap funcMapList[] = {
-        {'c', handleChar},
-        {'s', handleString},
+        {"c", handleChar},
+        {"s", handleString},
+        {"i", handleInt},
+		{"d", handleDec},
+        {"b", handleBinary},
+        {"u", handleUnsig},
+		{"o", HandleOctal},
+		{"x", handlex},
+		{"X", handleX},
         {NULL, NULL}
     };
 
     while (funcMapList[i].type)
     {
-        if (funcMapList[i].type == type)
+        if (funcMapList[i].type[0] == type)
         {
             CountedChars = funcMapList[i].func(args);
         }
@@ -30,7 +37,7 @@ int handlePercentage(va_list args, char type)
         i++;
     }
 
-    return CountedChars;
+    return (CountedChars);
 }
 
 /**
@@ -78,5 +85,5 @@ int _printf(const char *buffer, ...)
     }
 
     va_end(args);
-    return outedBuffer;
+    return (outedBuffer);
 }

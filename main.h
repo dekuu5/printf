@@ -9,6 +9,10 @@ int handleChar(va_list args);
 int handleInt(va_list args);
 int handleDec(va_list args);
 int handleBinary(va_list args);
+int handleUnsig(va_list u);
+int HandleOctal(va_list o);
+int handleX(va_list X);
+int handlex(va_list x);
 
 /**
  * struct fMap - Function mapping structure
