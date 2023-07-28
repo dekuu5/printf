@@ -9,11 +9,16 @@
  * Return: The number of characters written
  */
 int handleString(va_list args){
-    unsigned i = 0;
-    char * s = va_arg(args, char*);
-    while (s[i] != '\0')
-    {
-        _putchar(s[i++]);
-    }
-    return i;
+    char *my_string;
+	int  i = 0;
+
+	my_string = va_arg(args, char *);
+	if (my_string == NULL)
+		my_string = "(null)";
+	while (my_string[i])
+	{
+		_putchar(my_string[i]);
+		i++;
+	}
+	return (i);
 }

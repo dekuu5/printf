@@ -32,7 +32,7 @@ int handlePercentage(va_list args, char type)
         i++;
     }
 
-    return CountedChars;
+    return (CountedChars);
 }
 
 /**
@@ -80,5 +80,5 @@ int _printf(const char *buffer, ...)
     }
 
     va_end(args);
-    return outedBuffer;
+    return (outedBuffer);
 }
